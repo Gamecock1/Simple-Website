@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us & Contact | Pawmetto Lifeline</title>
+
+    <!-- Internal CSS Stylesheet -->
+    <style>
+        :root {
+            --cream: #faf7ef;
+            --green: #193e32;
+            --muted: #53645a;
+            --orange: #a34322;
+            --peach: #f3dfcd;
+            --line: #d8ded1;
+            --white: #fffefa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--green);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .top-note {
+            background: var(--green);
+            color: var(--white);
+            text-align: center;
+            padding: 9px;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-content {
+            width: min(1120px, 90%);
+            margin: auto;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 45px;
+            height: 45px;
+            background: var(--green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 23px;
+        }
+
+        .logo p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--orange);
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 45px;
+            padding: 65px 0;
+        }
+
+        .eyebrow {
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            margin: 12px 0;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .hero-image {
+            background: var(--peach);
+            padding: 14px;
+            border-radius: 180px 180px 18px 18px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 170px 170px 12px 12px;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            padding: 10px;
+        }
+
+        section {
+            padding: 45px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .story {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        .story h2 {
+            margin-top: 0;
+        }
+
+        .story p {
+            color: var(--muted);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto;
+            background: var(--peach);
+            color: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        .team-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .team-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .role {
+            color: var(--orange) !important;
+            font-weight: bold;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .contact-card h2 {
+            margin-top: 0;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+        }
+
+        .contact-card a {
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        form label {
+            display: block;
+            margin: 12px 0 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            background: var(--cream);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 22px;
+            background: var(--green);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--orange);
+        }
+
+        .hours {
+            background: var(--peach);
+            border-radius: 18px;
+            padding: 30px;
+            margin-top: 25px;
+        }
+
+        .hours h2 {
+            margin-top: 0;
+        }
+
+        .hours p {
+            margin: 7px 0;
+        }
+
+        .faq {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq h3 {
+            margin: 0 0 8px;
+        }
+
+        .faq p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: var(--green);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .hero,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-note">
+        FOR THE PETS. FOR THE PEOPLE. FOR THE MIDLANDS.
+    </div>
+
+    <!-- Website Header and Navigation -->
+    <header>
+        <div class="header-content">
+
+            <div class="logo">
+                <div class="logo-mark">♥</div>
+                <div>
+                    <h2>Pawmetto Lifeline</h2>
+                    <p>A little care. A new beginning.</p>
+                </div>
+            </div>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="page2.html">Services & Adoption</a>
+                <a href="page3.html" class="active">About & Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- About Us Hero Section -->
+        <div class="container">
+            <div class="hero">
+
+                <div>
+                    <p class="eyebrow">Our Story • Our Mission</p>
+                    <h1>A little care. A lasting impact.</h1>
+
+                    <p>
+                        At Pawmetto Lifeline, we believe every animal deserves
+                        love, safety, and the opportunity to find a forever home.
+                        Our mission is to support animals and the people who care
+                        for them throughout South Carolina's Midlands.
+                    </p>
+
+                    <p>
+                        Through adoption, fostering, wellness services, and
+                        community involvement, we hope to make a difference
+                        one paw at a time.
+                    </p>
+                </div>
+
+                <figure class="hero-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=85"
+                        alt="Happy dog looking toward the camera">
+                    <figcaption>
+                        Every pet deserves a chance at a loving home.
+                    </figcaption>
+                </figure>
+
+            </div>
+        </div>
+
+        <!-- Origin Story Section -->
+        <section>
+            <div class="container">
+
+                <div class="story">
+                    <p class="eyebrow">How It All Began</p>
+                    <h2>Our Origin Story</h2>
+
+                    <p>
+                        Pawmetto Lifeline began with a simple idea: no animal
+                        should have to go without love, care, or a safe place
+                        to call home. Our fictional founders noticed how many
+                        animals in their community needed help finding families
+                        and receiving basic wellness care.
+                    </p>
+
+                    <p>
+                        Inspired to make a difference, they created Pawmetto
+                        Lifeline as a community-centered organization focused
+                        on helping pets and connecting them with caring people.
+                        What started as a small idea grew into a mission built
+                        around compassion, responsibility, and second chances.
+                    </p>
+
+                    <p>
+                        Today, our goal is to help reduce pet overpopulation
+                        and animal suffering through adoption, fostering,
+                        spay and neuter services, and education. We believe
+                        that when a community comes together, every animal
+                        has a better chance at a brighter future.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Meet the Team Section -->
+        <section>
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">The People Behind the Mission</p>
+                    <h2>Meet Our Team</h2>
+                    <p>
+                        Our team works together to support animals,
+                        connect with the community, and spread awareness
+                        about responsible pet care.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+
+                    <article class="team-card">
+                        <div class="team-icon">♥</div>
+                        <h3>Helen</h3>
+                        <p class="role">Founder & Executive Director</p>
+                        <p>
+                            Helps guide the organization's mission and
+                            works to make sure every animal receives
+                            compassion and attention.
+                        </p>
+                    </article>
+
+                    <article class="team-card">
+                        <div class="team-icon">🐾</div>
+                        <h3>Christopher</h3>
+                        <p class="role">Community & Marketing Coordinator</p>
+                        <p>
+                            Connects with community members and helps
+                            spread awareness about adoption, fostering,
+                            and available services.
+                        </p>
+                    </article>
+
+                    <article class="team-card">
+                        <div class="team-icon">✉</div>
+                        <h3>Sarah</h3>
+                        <p class="role">Technology & Communications Coordinator</p>
+                        <p>
+                            Maintains online information and helps
+                            visitors learn about Pawmetto Lifeline
+                            and its mission.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Information and Form -->
+        <section>
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">We Would Love to Hear From You</p>
+                    <h2>Contact Us</h2>
+                    <p>
+                        Have a question about adoption, volunteering,
+                        fostering, or our services? Reach out to us!
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+                        <h2>Get in Touch</h2>
+
+                        <p><strong>Email:</strong><br>
+                            <a href="mailto:hello@pawmettolifeline.example">
+                                hello@pawmettolifeline.example
+                            </a>
+                        </p>
+
+                        <p><strong>Phone:</strong><br>
+                            (803) 555-0147
+                        </p>
+
+                        <p><strong>Location:</strong><br>
+                            Columbia, South Carolina
+                        </p>
+
+                        <p><strong>Instagram:</strong><br>
+                            @pawmettolifeline
+                        </p>
+
+                        <p><strong>Facebook:</strong><br>
+                            Pawmetto Lifeline
+                        </p>
+
+                        <p>
+                            We are happy to answer questions and help
+                            you learn more about supporting animals
+                            in our community.
+                        </p>
+
+                        <div class="hours">
+                            <h2>Our Hours</h2>
+                            <p><strong>Monday – Friday:</strong> 9 AM – 6 PM</p>
+                            <p><strong>Saturday:</strong> 10 AM – 4 PM</p>
+                            <p><strong>Sunday:</strong> Closed</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-card">
+                        <h2>Send Us a Message</h2>
+
+                        <form onsubmit="event.preventDefault(); alert('Thank you for contacting Pawmetto Lifeline! This is a demonstration form.');">
+
+                            <label for="name">Your Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required>
+
+                            <label for="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
+
+                            <label for="subject">What Can We Help You With?</label>
+                            <select id="subject" name="subject">
+                                <option>Adoption Questions</option>
+                                <option>Fostering</option>
+                                <option>Volunteering</option>
+                                <option>Pet Wellness Services</option>
+                                <option>Other</option>
+                            </select>
+
+                            <label for="message">Your Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required></textarea>
+
+                            <button type="submit">Submit Message</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions -->
+        <section>
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">Helpful Information</p>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+
+                <div class="faq">
+                    <h3>How can I adopt a pet?</h3>
+                    <p>
+                        Browse available pets on our Services & Adoption
+                        page and contact our team to learn about the
+                        adoption process.
+                    </p>
+                </div>
+
+                <div class="faq">
+                    <h3>Can I volunteer or become a foster?</h3>
+                    <p>
+                        Yes! Community members can help by volunteering
+                        their time or providing temporary homes for
+                        animals waiting to be adopted.
+                    </p>
+                </div>
+
+                <div class="faq">
+                    <h3>What types of animals do you help?</h3>
+                    <p>
+                        Our project focuses on helping dogs and cats
+                        find safe, loving homes.
+                    </p>
+                </div>
+
+                <div class="faq">
+                    <h3>How can I support the organization?</h3>
+                    <p>
+                        You can help by adopting, fostering, volunteering,
+                        donating supplies, or sharing our mission with
+                        others.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Website Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Pawmetto Lifeline</strong></p>
+            <p>A little care. A new beginning.</p>
+            <p>
+                Student group project by Helen, Christopher, and Sarah.
+                This is an educational demonstration, not the
+                organization's official website.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

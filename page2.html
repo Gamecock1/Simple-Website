@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pawmetto Lifeline student website: adoption, wellness, spay/neuter, and fostering services in South Carolina's Midlands.">
+  <title>Services &amp; Adoption | Pawmetto Lifeline</title>
+  <!-- Author: [Your Name] | Date: November 6, 2026 | Business group Page 2: Services & Adoption -->
+  <style>
+    /* SHARED DESIGN: Copied from index.html so all three pages match. */
+    :root {
+      --cream: #faf7ef;
+      --green: #193e32;
+      --muted: #53645a;
+      --orange: #a34322;
+      --peach: #f3dfcd;
+      --line: #d8ded1;
+      --white: #fffefa;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--green); font-family: Arial, Helvetica, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 5px; }
+    .skip-link { position: absolute; top: -100px; left: 16px; background: white; padding: 10px; z-index: 10; }
+    .skip-link:focus { top: 12px; }
+    .container { width: min(1120px, 90%); margin: 0 auto; }
+    .top-note { background: var(--green); color: var(--cream); text-align: center; padding: 7px 16px; font-size: .76rem; letter-spacing: .1em; }
+    header { border-bottom: 1px solid var(--line); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; background: var(--green); color: white; border-radius: 50%; width: 44px; height: 44px; font-size: 23px; }
+    .brand-name { display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; font-weight: bold; line-height: 1.15; }
+    .brand-sub { display: block; margin-top: 4px; font-size: .64rem; letter-spacing: .18em; text-transform: uppercase; }
+    nav { display: flex; gap: 25px; flex-wrap: wrap; font-size: .86rem; font-weight: bold; }
+    nav a { text-decoration: none; padding: 5px 0; border-bottom: 2px solid transparent; }
+    nav a:hover, nav a[aria-current="page"] { border-color: var(--orange); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 4.7rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 24px; }
+    h1 em { color: var(--orange); font-weight: normal; }
+    h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15; letter-spacing: -.025em; margin-bottom: 16px; }
+    h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    .eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: bold; color: var(--orange); margin-bottom: 18px; }
+    .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; padding: 65px 0 60px; }
+    .hero-copy > p:not(.eyebrow) { max-width: 490px; font-size: 1.03rem; }
+    .buttons { display: flex; gap: 13px; flex-wrap: wrap; margin: 28px 0 22px; }
+    .button { display: inline-block; text-align: center; text-decoration: none; border: 1px solid var(--green); border-radius: 7px; padding: 12px 20px; background: var(--green); color: white; font-weight: bold; font-size: .87rem; transition: background .15s; }
+    .button:hover { background: #2b5747; }
+    .button.secondary { background: transparent; color: var(--green); }
+    .button.secondary:hover { background: #e8ecdf; }
+    .hero-art { margin: 0; background: var(--peach); border-radius: 170px 170px 20px 20px; overflow: hidden; position: relative; }
+    .hero-art img { width: 100%; height: auto; display: block; }
+    .hero-art figcaption { background: var(--green); color: var(--cream); text-align: center; font-size: .79rem; letter-spacing: .04em; padding: 14px; }
+    .offerings { padding: 65px 0; border-top: 1px solid var(--line); }
+    .section-intro { max-width: 610px; margin-bottom: 30px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    .card-number { display: inline-block; font-family: Georgia, serif; color: var(--orange); font-size: 1.75rem; margin-bottom: 20px; }
+    .card p { font-size: .92rem; margin-bottom: 20px; }
+    .mission { background: #e8ecdf; padding: 40px; border-radius: 14px; display: grid; grid-template-columns: .65fr 1.35fr; gap: 35px; align-items: center; margin-bottom: 65px; }
+    .mission .eyebrow { margin-bottom: 0; }
+    .mission h2 { font-size: 2rem; }
+    footer { background: var(--green); color: var(--cream); padding: 32px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 24px; }
+    footer p { color: #d5e1d5; font-size: .78rem; margin: 7px 0 0; max-width: 520px; }
+    footer a { font-size: .85rem; text-underline-offset: 4px; }
+
+    /* PAGE 2 STYLES: New rules for the catalog, process steps, and promo. */
+    .price { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed var(--line); padding-top: 14px; font-weight: bold; }
+    .price strong { font-family: Georgia, serif; font-size: 1.5rem; color: var(--orange); }
+    .price span { font-size: .78rem; color: var(--muted); font-weight: normal; }
+    .badge { display: inline-block; background: var(--orange); color: white; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; list-style: none; padding: 0; margin: 0; counter-reset: step; }
+    .steps li { position: relative; padding: 28px 28px 24px; background: var(--peach); border-radius: 12px; counter-increment: step; }
+    .steps li::before { content: counter(step); display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 16px; border-radius: 50%; background: var(--green); color: var(--cream); font-family: Georgia, serif; font-size: 1.3rem; }
+    .steps li p { margin-bottom: 0; font-size: .92rem; }
+    .promo-code { display: inline-block; margin: 6px 0 18px; padding: 8px 16px; border: 2px dashed var(--orange); border-radius: 8px; background: var(--white); color: var(--orange); font-family: 'Courier New', monospace; font-size: 1.2rem; font-weight: bold; letter-spacing: .12em; }
+    .fine-print { font-size: .78rem; margin-bottom: 0; }
+
+    @media (max-width: 800px) {
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+      .hero-art { max-width: 470px; width: 100%; justify-self: center; }
+      .cards, .steps { grid-template-columns: 1fr; }
+      .mission { grid-template-columns: 1fr; gap: 15px; padding: 28px; }
+      .footer-inner { flex-direction: column; }
+      nav { gap: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="top-note">FOR THE PETS. FOR THE PEOPLE. FOR THE MIDLANDS.</div>
+  <!-- SHARED HEADER: Same on all three pages. -->
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Pawmetto Lifeline home">
+        <span class="brand-mark" aria-hidden="true">♥</span>
+        <span><span class="brand-name">Pawmetto Lifeline</span><span class="brand-sub">A little care. A new beginning.</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="page2.html" aria-current="page">Services &amp; Adoption</a>
+        <a href="page3.html">About &amp; Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- PAGE 2 CONTENT -->
+  <main id="main-content" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Services &amp; adoption</p>
+        <h1 id="hero-title">Care for every<br>step of the <em>journey.</em></h1>
+        <p>Whether you're looking for a new companion or keeping your current pet healthy, our services are affordable, friendly, and built around the pets and people of the Midlands.</p>
+        <div class="buttons">
+          <a class="button" href="#catalog">See Services &amp; Prices</a>
+          <a class="button secondary" href="page3.html">Ask a Question</a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img width="520" height="360" alt="Illustration of a large paw print with a heart, surrounded by small paw prints." src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 360'%3E%3Crect width='520' height='360' fill='%23f3dfcd'/%3E%3Ccircle cx='260' cy='185' r='150' fill='%23f8ebdb'/%3E%3Cellipse cx='260' cy='225' rx='68' ry='56' fill='%23193e32'/%3E%3Cellipse cx='186' cy='150' rx='24' ry='31' fill='%23193e32'/%3E%3Cellipse cx='232' cy='113' rx='24' ry='31' fill='%23193e32'/%3E%3Cellipse cx='288' cy='113' rx='24' ry='31' fill='%23193e32'/%3E%3Cellipse cx='334' cy='150' rx='24' ry='31' fill='%23193e32'/%3E%3Cpath d='M260 252 C236 234 238 210 252 208 C258 207 260 212 260 216 C260 212 262 207 268 208 C282 210 284 234 260 252Z' fill='%23a34322'/%3E%3Cg fill='%23c88b49'%3E%3Cellipse cx='70' cy='300' rx='16' ry='13'/%3E%3Ccircle cx='54' cy='282' r='6'/%3E%3Ccircle cx='66' cy='275' r='6'/%3E%3Ccircle cx='79' cy='277' r='6'/%3E%3Ccircle cx='88' cy='287' r='6'/%3E%3Cellipse cx='452' cy='82' rx='16' ry='13'/%3E%3Ccircle cx='436' cy='64' r='6'/%3E%3Ccircle cx='448' cy='57' r='6'/%3E%3Ccircle cx='461' cy='59' r='6'/%3E%3Ccircle cx='470' cy='69' r='6'/%3E%3C/g%3E%3Cpath d='M440 300 l5 -13 5 13 13 5 -13 5 -5 13 -5 -13 -13 -5Z M80 70 l5 -13 5 13 13 5 -13 5 -5 13 -5 -13 -13 -5Z' fill='%23a34322'/%3E%3C/svg%3E">
+        <figcaption>Every visit is a step toward a healthier Midlands.</figcaption>
+      </figure>
+    </section>
+
+    <section class="offerings" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-intro">
+        <p class="eyebrow">What we offer</p>
+        <h2 id="catalog-title">Services &amp; pricing</h2>
+        <p>Simple, honest prices so more pets can get the care they need.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="card-number" aria-hidden="true">01 /</span>
+          <h3>Dog Adoption <span class="badge">Bestseller</span></h3>
+          <p>Meet playful pups and loyal seniors. Every dog goes home spayed or neutered, microchipped, and up to date on vaccines.</p>
+          <div class="price"><strong>$150</strong><span>includes first vet visit</span></div>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">02 /</span>
+          <h3>Cat Adoption</h3>
+          <p>From curious kittens to calm lap cats, find a feline friend who fits your home and your schedule.</p>
+          <div class="price"><strong>$75</strong><span>adopt two for $120</span></div>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">03 /</span>
+          <h3>Spay / Neuter</h3>
+          <p>Safe, low-cost surgery that keeps pets healthy and prevents unwanted litters across the Midlands.</p>
+          <div class="price"><strong>$85+</strong><span>price by size</span></div>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">04 /</span>
+          <h3>Wellness Exam</h3>
+          <p>A nose-to-tail checkup with a friendly vet, plus advice on nutrition, weight, and dental care.</p>
+          <div class="price"><strong>$45</strong><span>per visit</span></div>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">05 /</span>
+          <h3>Vaccine Bundle</h3>
+          <p>Core shots, including rabies, in one easy appointment. Paperwork is ready the same day.</p>
+          <div class="price"><strong>$60</strong><span>save $25 vs. single shots</span></div>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">06 /</span>
+          <h3>Foster Starter Kit</h3>
+          <p>Open your home for a few weeks. We provide food, a crate, supplies, and vet care while you provide love.</p>
+          <div class="price"><strong>Free</strong><span>for approved fosters</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="offerings" aria-labelledby="process-title">
+      <div class="section-intro">
+        <p class="eyebrow">How it works</p>
+        <h2 id="process-title">Three steps to a new best friend</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Browse &amp; apply</h3><p>Look through adoptable pets and fill out a quick application online or in person.</p></li>
+        <li><h3>Meet &amp; greet</h3><p>Spend time with your match. Our team answers questions and makes sure it's a good fit.</p></li>
+        <li><h3>Welcome home</h3><p>Sign the papers, grab your take-home kit, and start your new life together.</p></li>
+      </ol>
+    </section>
+
+    <section class="mission" aria-labelledby="promo-title">
+      <div><p class="eyebrow">Seasonal special</p><h2 id="promo-title">Home for<br>the Holidays</h2></div>
+      <div>
+        <p>This November and December, adult cat and senior dog adoption fees are <strong>50% off</strong>. Mention this code at your meet and greet:</p>
+        <span class="promo-code">PAWLIDAYS</span>
+        <p class="fine-print">Fictional promotion created for a student project.</p>
+      </div>
+    </section>
+  </main>
+  <!-- SHARED FOOTER: Keep the student-project notice on every page. -->
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>Pawmetto Lifeline</strong><p>Serving the people and pets of South Carolina’s Midlands.</p><p>Student group project by Helen, Christopher, and Sarah. This is an educational demonstration, not the organization’s official website.</p></div>
+      <a href="page3.html">Meet the team &amp; connect →</a>
+    </div>
+  </footer>
+</body>
+</html>

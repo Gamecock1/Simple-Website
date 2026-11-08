@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pawmetto Lifeline student website: helping pets and people in South Carolina's Midlands through adoption, fostering, and wellness services.">
+  <title>Pawmetto Lifeline | Every Paw Deserves a Home</title>
+  <!-- Author: Sarah | Date: November 5, 2026 | Business group homepage -->
+  <!-- PARTNERS: Copy this internal style section, header, and footer into your
+       page. Replace the main content and title, update the author comment,
+       and move aria-current="page" to your own navigation link. -->
+  <style>
+    /* SHARED DESIGN: Keep these colors and fonts consistent on all three pages. */
+    :root {
+      --cream: #faf7ef;
+      --green: #193e32;
+      --muted: #53645a;
+      --orange: #a34322;
+      --peach: #f3dfcd;
+      --line: #d8ded1;
+      --white: #fffefa;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--green); font-family: Arial, Helvetica, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 5px; }
+    .skip-link { position: absolute; top: -100px; left: 16px; background: white; padding: 10px; z-index: 10; }
+    .skip-link:focus { top: 12px; }
+    .container { width: min(1120px, 90%); margin: 0 auto; }
+    .top-note { background: var(--green); color: var(--cream); text-align: center; padding: 7px 16px; font-size: .76rem; letter-spacing: .1em; }
+    header { border-bottom: 1px solid var(--line); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; background: var(--green); color: white; border-radius: 50%; width: 44px; height: 44px; font-size: 23px; }
+    .brand-name { display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; font-weight: bold; line-height: 1.15; }
+    .brand-sub { display: block; margin-top: 4px; font-size: .64rem; letter-spacing: .18em; text-transform: uppercase; }
+    nav { display: flex; gap: 25px; flex-wrap: wrap; font-size: .86rem; font-weight: bold; }
+    nav a { text-decoration: none; padding: 5px 0; border-bottom: 2px solid transparent; }
+    nav a:hover, nav a[aria-current="page"] { border-color: var(--orange); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 4.7rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 24px; }
+    h1 em { color: var(--orange); font-weight: normal; }
+    h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15; letter-spacing: -.025em; margin-bottom: 16px; }
+    h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    .eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: bold; color: var(--orange); margin-bottom: 18px; }
+    .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; padding: 65px 0 60px; }
+    .hero-copy > p:not(.eyebrow) { max-width: 490px; font-size: 1.03rem; }
+    .buttons { display: flex; gap: 13px; flex-wrap: wrap; margin: 28px 0 22px; }
+    .button { display: inline-block; text-align: center; text-decoration: none; border: 1px solid var(--green); border-radius: 7px; padding: 12px 20px; background: var(--green); color: white; font-weight: bold; font-size: .87rem; transition: background .15s; }
+    .button:hover { background: #2b5747; }
+    .button.secondary { background: transparent; color: var(--green); }
+    .button.secondary:hover { background: #e8ecdf; }
+    .mission-tag { display: flex; align-items: center; gap: 8px; color: var(--green); font-size: .8rem; }
+    .mission-tag span { color: var(--orange); }
+    .hero-art { margin: 0; background: var(--peach); border-radius: 170px 170px 20px 20px; overflow: hidden; position: relative; }
+    .hero-art img { width: 100%; height: auto; display: block; }
+    .hero-art figcaption { background: var(--green); color: var(--cream); text-align: center; font-size: .79rem; letter-spacing: .04em; padding: 14px; }
+    .values { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; font-size: .8rem; font-weight: bold; }
+    .values span::before { content: '✦'; margin-right: 10px; color: var(--orange); }
+    .offerings { padding: 65px 0; }
+    .section-intro { max-width: 610px; margin-bottom: 30px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    .card-number { display: inline-block; font-family: Georgia, serif; color: var(--orange); font-size: 1.75rem; margin-bottom: 20px; }
+    .card p { font-size: .92rem; margin-bottom: 20px; }
+    .text-link { color: var(--green); font-size: .86rem; font-weight: bold; text-underline-offset: 4px; }
+    .mission { background: #e8ecdf; padding: 40px; border-radius: 14px; display: grid; grid-template-columns: .65fr 1.35fr; gap: 35px; align-items: center; margin-bottom: 65px; }
+    .mission .eyebrow { margin-bottom: 0; }
+    .mission h2 { font-size: 2rem; }
+    .mission p { margin-bottom: 0; }
+    footer { background: var(--green); color: var(--cream); padding: 32px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 24px; }
+    footer p { color: #d5e1d5; font-size: .78rem; margin: 7px 0 0; max-width: 520px; }
+    footer a { font-size: .85rem; text-underline-offset: 4px; }
+    @media (max-width: 800px) {
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+      .hero-art { max-width: 470px; width: 100%; justify-self: center; }
+      .cards { grid-template-columns: 1fr; }
+      .mission { grid-template-columns: 1fr; gap: 15px; padding: 28px; }
+      .footer-inner { flex-direction: column; }
+      nav { gap: 18px; }
+      .values { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="top-note">FOR THE PETS. FOR THE PEOPLE. FOR THE MIDLANDS.</div>
+  <!-- SHARED HEADER: Use on all three pages. -->
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Pawmetto Lifeline home">
+        <span class="brand-mark" aria-hidden="true">♥</span>
+        <span><span class="brand-name">Pawmetto Lifeline</span><span class="brand-sub">A little care. A new beginning.</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="page2.html">Services &amp; Adoption</a>
+        <a href="page3.html">About &amp; Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- PAGE CONTENT: Partners replace this main section with their own content. -->
+  <main id="main-content" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Compassion starts close to home</p>
+        <h1 id="hero-title">Every paw deserves<br>a <em>new beginning.</em></h1>
+        <p>Pawmetto Lifeline is a nonprofit dedicated to reducing pet overpopulation and animal suffering in South Carolina’s Midlands. Through adoption, fostering, pet wellness, and spay/neuter services, we help animals find care and support the people who love them.</p>
+        <div class="buttons">
+          <a class="button" href="page2.html">Explore Our Services &nbsp;↗</a>
+          <a class="button secondary" href="page3.html">Get in Touch</a>
+        </div>
+        <div class="mission-tag"><span aria-hidden="true">♥</span> More compassion. More second chances.</div>
+      </div>
+      <figure class="hero-art">
+        <!-- Original vector illustration is embedded so no image download is needed. -->
+        <img id="animal-illustration" width="520" height="490" alt="Illustration of a golden dog and a gray cat sitting together beneath a heart." src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20520%20490%22%3E%3Crect%20width%3D%22520%22%20height%3D%22490%22%20fill%3D%22%23f3dfcd%22%2F%3E%3Ccircle%20cx%3D%22264%22%20cy%3D%22226%22%20r%3D%22180%22%20fill%3D%22%23f8ebdb%22%2F%3E%3Cpath%20d%3D%22M30%20433%20Q85%20395%20118%20437%20M400%20438%20Q453%20390%20494%20430%22%20stroke%3D%22%23b9c2a0%22%20stroke-width%3D%2212%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%3Cellipse%20cx%3D%22267%22%20cy%3D%22451%22%20rx%3D%22191%22%20ry%3D%2218%22%20fill%3D%22%23d3b89d%22%2F%3E%3Cpath%20d%3D%22M269%20111%20C240%2089%20249%2065%20269%2073%20C289%2053%20311%2082%20269%20111%22%20fill%3D%22%23a34322%22%2F%3E%3Cpath%20d%3D%22M143%20352%20Q99%20290%2078%20327%20Q66%20362%20119%20382%22%20fill%3D%22none%22%20stroke%3D%22%23bc793c%22%20stroke-width%3D%2224%22%20stroke-linecap%3D%22round%22%2F%3E%3Cellipse%20cx%3D%22196%22%20cy%3D%22354%22%20rx%3D%2289%22%20ry%3D%2295%22%20fill%3D%22%23c88b49%22%2F%3E%3Cpath%20d%3D%22M146%20336%20Q141%20395%20145%20443%20Q164%20455%20181%20443%20L190%20345%20M211%20343%20L213%20443%20Q235%20456%20251%20441%20L253%20334%22%20fill%3D%22%23e6b573%22%2F%3E%3Cellipse%20cx%3D%22141%22%20cy%3D%22443%22%20rx%3D%2226%22%20ry%3D%2212%22%20fill%3D%22%23e6b573%22%2F%3E%3Cellipse%20cx%3D%22235%22%20cy%3D%22443%22%20rx%3D%2226%22%20ry%3D%2212%22%20fill%3D%22%23e6b573%22%2F%3E%3Cpath%20d%3D%22M131%20178%20Q88%20158%2094%20238%20Q100%20286%20132%20266%20L153%20208%20M245%20179%20Q284%20167%20290%20227%20Q295%20275%20258%20271%20L234%20209%22%20fill%3D%22%238e522d%22%2F%3E%3Cpath%20d%3D%22M127%20200%20Q129%20147%20194%20150%20Q258%20149%20260%20211%20L250%20264%20Q236%20293%20194%20298%20Q149%20292%20132%20268Z%22%20fill%3D%22%23e6b573%22%2F%3E%3Cellipse%20cx%3D%22196%22%20cy%3D%22255%22%20rx%3D%2245%22%20ry%3D%2232%22%20fill%3D%22%23fae5c4%22%2F%3E%3Cellipse%20cx%3D%22168%22%20cy%3D%22219%22%20rx%3D%226%22%20ry%3D%228%22%20fill%3D%22%23193e32%22%2F%3E%3Cellipse%20cx%3D%22222%22%20cy%3D%22219%22%20rx%3D%226%22%20ry%3D%228%22%20fill%3D%22%23193e32%22%2F%3E%3Cpath%20d%3D%22M184%20245%20Q197%20236%20210%20245%20Q207%20259%20197%20260%20Q186%20258%20184%20245%22%20fill%3D%22%23193e32%22%2F%3E%3Cpath%20d%3D%22M197%20260%20L197%20271%20M179%20267%20Q197%20285%20215%20267%22%20fill%3D%22none%22%20stroke%3D%22%23193e32%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M139%20283%20Q196%20311%20249%20284%20L247%20300%20Q196%20327%20142%20299Z%22%20fill%3D%22%23193e32%22%2F%3E%3Ccircle%20cx%3D%22197%22%20cy%3D%22311%22%20r%3D%2210%22%20fill%3D%22%23c7984d%22%2F%3E%3Cpath%20d%3D%22M381%20415%20Q450%20416%20438%20358%20Q430%20333%20412%20346%22%20fill%3D%22none%22%20stroke%3D%22%23687c78%22%20stroke-width%3D%2220%22%20stroke-linecap%3D%22round%22%2F%3E%3Cellipse%20cx%3D%22351%22%20cy%3D%22376%22%20rx%3D%2258%22%20ry%3D%2272%22%20fill%3D%22%23899d97%22%2F%3E%3Cpath%20d%3D%22M311%20331%20L313%20441%20Q330%20451%20342%20440%20L346%20363%20L355%20440%20Q375%20451%20387%20439%20L388%20330%22%20fill%3D%22%23a7b8ae%22%2F%3E%3Cpath%20d%3D%22M297%20283%20L294%20218%20L331%20243%20Q351%20235%20374%20246%20L409%20222%20L403%20287%20Q401%20326%20352%20333%20Q302%20326%20297%20283%22%20fill%3D%22%23899d97%22%2F%3E%3Cpath%20d%3D%22M303%20240%20L307%20267%20L322%20252%20M381%20254%20L398%20240%20L394%20269%22%20fill%3D%22%23d8aaa1%22%2F%3E%3Cellipse%20cx%3D%22331%22%20cy%3D%22281%22%20rx%3D%225%22%20ry%3D%227%22%20fill%3D%22%23193e32%22%2F%3E%3Cellipse%20cx%3D%22376%22%20cy%3D%22281%22%20rx%3D%225%22%20ry%3D%227%22%20fill%3D%22%23193e32%22%2F%3E%3Cpath%20d%3D%22M345%20296%20L359%20296%20L352%20304Z%22%20fill%3D%22%23a34322%22%2F%3E%3Cpath%20d%3D%22M352%20304%20L352%20311%20M340%20309%20Q352%20319%20364%20309%20M321%20300%20L285%20296%20M322%20307%20L286%20311%20M383%20300%20L418%20296%20M383%20307%20L418%20312%22%20stroke%3D%22%23193e32%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M315%20328%20Q352%20342%20393%20326%22%20stroke%3D%22%23a34322%22%20stroke-width%3D%229%22%20fill%3D%22none%22%2F%3E%3Ccircle%20cx%3D%22354%22%20cy%3D%22339%22%20r%3D%227%22%20fill%3D%22%23c7984d%22%2F%3E%3Cpath%20d%3D%22M81%20139%20l6%20-17%206%2017%2017%206%20-17%206%20-6%2017%20-6%20-17%20-17%20-6Z%20M427%20174%20l5%20-13%205%2013%2013%205%20-13%205%20-5%2013%20-5%20-13%20-13%20-5Z%22%20fill%3D%22%23a34322%22%2F%3E%3C%2Fsvg%3E">
+        <figcaption>Small paws. Big possibilities.</figcaption>
+      </figure>
+    </section>
+    <div class="values" aria-label="Our priorities">
+      <span>Animal well-being</span><span>Community education</span><span>Support for pets &amp; people</span>
+    </div>
+    <section class="offerings" aria-labelledby="offerings-title">
+      <div class="section-intro">
+        <p class="eyebrow">Care that makes a difference</p>
+        <h2 id="offerings-title">One mission. Many ways to help.</h2>
+        <p>From a first checkup to a forever home, every step is a chance to change an animal’s life.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="card-number" aria-hidden="true">01 /</span>
+          <h3>Adopt a new best friend</h3>
+          <p>Open your heart to a companion in need. Discover how adoption gives an animal a fresh start and a family a new friend.</p>
+          <a class="text-link" href="page2.html">Explore adoption →</a>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">02 /</span>
+          <h3>Support healthier pets</h3>
+          <p>Pet wellness and spay/neuter services support animal health while helping prevent unwanted litters and pet overpopulation.</p>
+          <a class="text-link" href="page2.html">Discover our services →</a>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">03 /</span>
+          <h3>Make room for hope</h3>
+          <p>A temporary foster home can mean comfort, patience, and a safe place to grow while an animal waits for a lasting home.</p>
+          <a class="text-link" href="page3.html">Ask about fostering →</a>
+        </article>
+      </div>
+    </section>
+    <section class="mission" aria-labelledby="mission-title">
+      <div><p class="eyebrow">Our promise</p><h2 id="mission-title">Care for animals.<br>Support their people.</h2></div>
+      <p>Our mission is to support pets and owners in need, reduce pet overpopulation, and prevent animal suffering. We believe a more compassionate Midlands starts with education, teamwork, and giving every animal a chance.</p>
+    </section>
+  </main>
+  <!-- SHARED FOOTER: Keep the student-project notice on every page. -->
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>Pawmetto Lifeline</strong><p>Serving the people and pets of South Carolina’s Midlands.</p><p>Student group project by Helen, Christopher, and Sarah. This is an educational demonstration, not the organization’s official website.</p></div>
+      <a href="page3.html">Meet the team &amp; connect →</a>
+    </div>
+  </footer>
+</body>
+</html>
